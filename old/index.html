@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cory Bergquist</title>
+
+<link href="style/style.css" type="text/css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+
+<script type="text/javascript">
+	$(function() {
+	    $("nav div").hover(function() {
+		    $(this).stop().animate({bottom: "0px"}, 500);
+		}, function() {
+		    $(this).stop().animate({bottom: "-110px"}, 500);
+		}
+	    );
+	});
+	
+	$(function() {
+		$("nav a").click(function() {
+		    $('html, body').animate({scrollTop: $( $.attr(this, 'rel') ).offset().top}, 500);
+		}
+	    );
+	});
+	
+	$(function() {
+	    $('#home').css('height',(($(window).height())-100));
+	    //$('#nav').css('margin-top',(($(window).height())-100));
+	    $('#ground').height($(window).height() - $('#ground').offset().top);
+	});
+	
+	/*$(function() {
+	    var move = 0;
+		
+	    $('#nav a').css('margin-left', move)
+	})*/
+	
+	/*$(function() {	
+		$("nav div h1").click(function() {
+		$(this).animate({letterSpacing: "-5px"}, 500);
+	    }
+	);
+    });*/	
+</script>
+</head>
+
+<body>
+<header id="home">
+    <div id="navWrapper">
+	<div id="nav">
+	    <img src="images/mario_me.png" alt="Cory Bergquist Logo" />
+	    
+	    <nav>
+		<div><a rel="#about"><h1>About</h1><img src="images/pipe.png" /></a></div>
+		<div><a rel="#resume"><h1>Resume</h1><img src="images/pipe.png" /></a></div>
+		<div><a rel="#portfolio"><h1>Portfolio</h1><img src="images/pipe.png" /></a></div>
+		<div><a rel="#contact"><h1>Contact</h1><img src="images/pipe.png" /></a></div>
+	    </nav>
+	</div>
+    </div>
+</header>
+
+<div id="ground"></div>
+
+<div id="content">
+    <section id="about">
+        <h2>Welcome!</h2>
+        <p>Please forgive the appearance, I'm currently doing some work here! I'll have my life in order soon. These things take time.</p>
+        <p>In the meantime, please feel free to look around!</p>
+    </section>
+    
+    <h2>Resume</h2>
+    <section id="resume">
+    	<section class="indent">
+	    <img class="floatRight" src="images/drexelLogo.png" />
+            <h3>Education</h3>
+            <p>Drexel University Philadelphia, PA</p>
+            <p>Bachelor of Science in Computer Science</p>
+            <p>Concentration in Game Design</p>
+            <p>Anticipated Graduation - June 2015</p>
+	</section>
+        
+	<section class="indent">
+            <h3>Skills</h3>
+	    <p>Computer Languages - C++, Java, Unix, Python, HTML and HTML5, CSS and CSS3, JavaScript, jQuery, ASP.NET</p>
+	    <p>Software - Microsoft Office (Word, Excel, PowerPoint), Microsoft Visual Studios, Eclipse, Adobe Creative Suite (Photoshop, Dreamweaver, Illustrator, Flash), SSH Secure Shell, Unity3D, Maya</p>
+	</section>
+        
+	<section class="indent">
+            <h3>Experience</h3>
+	    <p><strong>Phyxius Media Point Pleasant, NJ<br />Co-Founder, Head of Web Design Department<br />July 2011 to Present</strong></p>
+	    
+	    <ul>
+            	<li>Collaborated with another student to found a media company focused on delivering quality and affordable websites to clients.</li>
+		<li>Develop and manage web-based information and devices.</li>
+		<li>Recruited a classmate to assist in web design to ensure timely delivery of a quality product.</li>
+            </ul>
+            
+	    <p><strong>CSL Behring King of Prussia<br />Web Project Analyst, Co-op<br />April to September, 2013</strong></p>
+	    
+	    <ul>
+            	<li>Maintained company and product web pages as requested.</li>
+		<li>Provided support for and tested new content management system.</li>
+		<li>Utilized SharePoint to organize and manage client requests.</li>
+            </ul>
+            
+	    <p><strong>PJM Interconnection, LLC Norristown, PA<br />Client Computing Services, Co-op<br />April to September, 2012</strong></p>
+	    
+	    <ul>
+            	<li>Prepared and deployed equipment for new hires, which included reformatting hard drives, installing software and setting up hardware.</li>
+		<li>Communicated with employees on a company-wide level to resolve technical issues.</li>
+		<li>Handled sensitive information regarding user accounts and company policies.</li>
+            </ul>
+	</section>
+        
+	<section class="indent">
+            <h3>Honors and Awards</h3>
+	    <p>Hobey Baker Character Award, Point Pleasant Borough High School - 2009</p>
+        </section>
+        
+        <section class="indent">
+	    <h3>Activities</h3>
+            <p>Treasurer- Drexel FC - 2013</p>
+            <p>Trumpet Teacher - 2003-2011</p>
+            <p>Section Leader - Competition Band, Jazz Band, Concert Band, Pit Orchestra, Point Pleasant Borough High School - 2009-2010</p>
+            <p>National Honor Society - 2010</p>
+	</section>
+    </section>
+    
+    <section id="portfolio">
+    	<h2>Portfolio</h2>
+        
+        <section class="indent">
+	  <h3>Art!</h3>
+	  <p>Coming soon!</p>
+            
+          <h3>Games!</h3>
+          <p>Coming soon!</p>
+            
+          <h3>Websites!</h3>
+          <a href="http://www.ottonechiro.com/" target="_blank"><img src="images/ottoneSite.png" alt="Ottone Chiropractic Center" title="Ottone Chiropractic Center" /></a>
+            
+          <a href="http://www.phillygooners.com/" target="_blank"><img src="images/goonerSite.png" alt="Philly Gooners" title="Philly Gooners" /></a>
+        </section>
+    </section>
+    
+    <section id="contact">
+    	<h2>Want to get in contact with me?</h2>
+        <p><strong>Shoot me an email! I usually respond pretty quickly.</strong></p>
+        <p>cory3bergquist AT gmail DOT com</p>
+    </section>
+</div>
+
+<footer>
+    <!--<p>Copyright &copy; 2013 Cory Bergquist. All rights reserved.</p>-->
+</footer>
+</body>
+</html>

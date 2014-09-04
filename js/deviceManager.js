@@ -14,7 +14,7 @@ function adjustStyle(width) {
         //$('#stylesheet').attr('href', 'css/tablet.css');
 		buildTabletLayout();
     } else {
-       //$('#stylesheet').attr('href', 'css/computer.css');
+       $('#stylesheet').attr('href', 'css/computer.css');
 	   buildComputerLayout();
     }
 }

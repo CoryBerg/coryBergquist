@@ -5,6 +5,7 @@
 
 var canvas = document.getElementById('canvas'),
 	ctx = canvas.getContext('2d'),
+	doc = $(document),
 	width = window.innerWidth-17,
 	height = window.innerHeight-125,
 	pipeImg = new Image(),
@@ -26,8 +27,7 @@ var canvas = document.getElementById('canvas'),
 		image: new Image()
 	},
 	pw = player.width,
-	ph = player.height,
-	freeze = false;
+	ph = player.height;
 
 player.image.src = 'images/mario_me.png';
 pipeImg.src = 'images/pipe.png';
@@ -45,7 +45,7 @@ boxes.push({
 
 // Pipes
 boxes.push({
-	x: (width/2)-100,
+	x: (width/2)-113,
 	y: height-116,
 	width: 100,
 	height: 116
@@ -77,7 +77,13 @@ function update() {
 	ctx.beginPath();
 	
 	drawText();
-	ctx.drawImage(menuImg, (width/2)-(height/4), 100, (height/2), (height/4));
+	if(height > 600) {
+		ctx.drawImage(menuImg, (width/2)-(height/3), 100, (height/1.5), (height/3));
+	}
+	else {
+		ctx.drawImage(menuImg, 75, 100, (height/1.5), (height/3));
+	}
+	
 	ctx.drawImage(player.image, player.x, player.y, pw, ph);
 	
 	player.grounded = false;
@@ -126,15 +132,19 @@ function checkKeys() {
 }
 
 function drawText() {
-	ctx.fillStyle = '#000';
-	ctx.font = 'bold 2.0em sans-serif';
+	ctx.fillStyle = '#fff';
+	ctx.font = 'bold 1.75em sans-serif';
 	ctx.textBaseline = 'bottom';
-	ctx.fillText('A/D = Left/Right', 75, 100);
-	ctx.fillText('W = Jump', 75, 135);
-	ctx.fillText('D = Crouch', 75, 170);
-	ctx.fillText('Resume', (width/2)-113, height-175);
-	ctx.fillText('Portfolio', (width/2)+133, height-175);
-	ctx.fillText('Contact', (width/2)+387, height-175);
+	
+	ctx.fillText('A/D = Left/Right', 50, 75);
+	ctx.fillText('W = Jump', (width/2) - 75, 75);
+	ctx.fillText('D = Crouch', width - 225, 75);
+	
+	ctx.font = 'bold 2.0em sans-serif';
+	
+	ctx.fillText('Resume', boxes[1].x - 15, boxes[1].y - 100);
+	ctx.fillText('Portfolio', boxes[2].x - 20, boxes[2].y - 100);
+	ctx.fillText('Contact', boxes[3].x - 15, boxes[3].y - 100);
 }
 
 function checkBoxes() {
@@ -154,7 +164,6 @@ function checkBoxes() {
 			player.jumping = false;
 			
 			if(i > 0 && keys[83]) {
-				freeze = true;
 				goDownPipe(i);
 			}
 		}
@@ -205,7 +214,7 @@ function colCheck(shapeA, shapeB) {
 
 function goDownPipe(pipe) {
 	var st = setInterval(function() {
-			if(player.height >= 0) {
+			if(player.height > 0) {
 				player.height -= 1;
 			}
 		}, 10);
@@ -235,14 +244,27 @@ function goDownPipe(pipe) {
         if($(this).offset().top) {
 			$('html, body').animate({
 				scrollTop: $(this).offset().top
-			}, 800);
+			}, 3000, 'swing');
 		}
         return this;
     }
 })(jQuery);
- 
-document.body.addEventListener('keydown', function (e) {
-	if(!freeze) {
+
+$(window).on('scroll wheel DOMMouseScroll mousewheel', function(e) {
+    if (e.which > 0 ||
+        e.type === 'mousedown' ||
+        e.type === 'mousewheel') {
+        $('html, body').stop();
+    }
+	
+	if(player.height == 0 && doc.scrollTop() < height) {
+		player.y = -500;
+		player.height = ph;
+	}
+});
+
+window.addEventListener('keydown', function (e) {
+	if(doc.scrollTop() < height) {
 		if(e.keyCode == 65 || e.keyCode == 68 || e.keyCode == 83 || e.keyCode == 87) {
 			e.preventDefault();
 		}
@@ -250,7 +272,7 @@ document.body.addEventListener('keydown', function (e) {
 	}
 });
  
-document.body.addEventListener('keyup', function (e) {
+window.addEventListener('keyup', function (e) {
 	keys[e.keyCode] = false;
 });
  
@@ -263,7 +285,7 @@ window.addEventListener('resize', function() {
 
 	width = window.innerWidth-17;
 	height = window.innerHeight-125;
-		
+
 	canvas.width = width;
-	canvas.height = height;	
+	canvas.height = height;
 });

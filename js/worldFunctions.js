@@ -27,13 +27,18 @@ var canvas = document.getElementById('canvas'),
 		image: new Image()
 	},
 	pw = player.width,
-	ph = player.height;
-
-player.image.src = 'images/mario_me.png';
+	ph = player.height,
+	sprite = {
+		x: 538,
+		y: 0,
+		w: 74,
+		h: 100
+	},
+	runTimer = 0;
+	
+player.image.src = 'images/marioMe_sprites.png';
 pipeImg.src = 'images/pipe.png';
 menuImg.src = 'images/cbMenu.png';
-
-ctx.drawImage(player.image, player.x, player.y);
 
 // Floor
 boxes.push({
@@ -84,7 +89,7 @@ function update() {
 		ctx.drawImage(menuImg, 75, 100, (height/1.5), (height/3));
 	}
 	
-	ctx.drawImage(player.image, player.x, player.y, pw, ph);
+	drawPlayer();
 	
 	player.grounded = false;
 	
@@ -138,13 +143,17 @@ function drawText() {
 	
 	ctx.fillText('A/D = Left/Right', 50, 75);
 	ctx.fillText('W = Jump', (width/2) - 75, 75);
-	ctx.fillText('D = Crouch', width - 225, 75);
+	ctx.fillText('S = Crouch', width - 225, 75);
 	
 	ctx.font = 'bold 2.0em sans-serif';
 	
-	ctx.fillText('Resume', boxes[1].x - 15, boxes[1].y - 100);
+	ctx.fillText('About', boxes[1].x - 15, boxes[1].y - 100);
 	ctx.fillText('Portfolio', boxes[2].x - 20, boxes[2].y - 100);
 	ctx.fillText('Contact', boxes[3].x - 15, boxes[3].y - 100);
+}
+
+function drawPlayer() {
+	ctx.drawImage(player.image, sprite.x, 0, sprite.w, ph, player.x, player.y, pw, ph);
 }
 
 function checkBoxes() {
@@ -212,9 +221,14 @@ function colCheck(shapeA, shapeB) {
 	return colDir;
 }
 
+function setSprites() {
+	sprites.push();
+}
+
 function goDownPipe(pipe) {
 	var st = setInterval(function() {
 			if(player.height > 0) {
+				ph -= 1;
 				player.height -= 1;
 			}
 		}, 10);
@@ -222,20 +236,20 @@ function goDownPipe(pipe) {
 	if(pipe == '1') {
 		setTimeout(function() {
 				clearInterval(st);
-				$('#resume').goTo();
+				$('#about').goTo();
 			}, 1150);
 	}
 	if(pipe == '2') {
 		setTimeout(function() {
 				clearInterval(st);
 				$('#portfolio').goTo(); 
-			}, 1100);
+			}, 1150);
 	}
 	if(pipe == '3') {
 		setTimeout(function() {
 				clearInterval(st);
 				$('#contact').goTo(); 
-			}, 1100);
+			}, 1150);
 	}
 }
 
@@ -259,16 +273,48 @@ $(window).on('scroll wheel DOMMouseScroll mousewheel', function(e) {
 	
 	if(player.height == 0 && doc.scrollTop() < height) {
 		player.y = -500;
+		ph = 100;
 		player.height = ph;
 	}
 });
 
+canvas.addEventListener('click', function (e) {
+    var clickedX = e.pageX - this.offsetLeft;
+    var clickedY = e.pageY - this.offsetTop;
+    	
+    for (var i = 1; i < boxes.length; i++) {
+        if (clickedX > boxes[i].x && clickedX < boxes[i].x + boxes[i].width &&
+			clickedY > boxes[i].y && clickedY < boxes[i].y + boxes[i].height) {
+            if(i == 1) {
+				$('#about').goTo();
+			}
+			if(i == 2) {
+				$('#portfolio').goTo();
+			}
+			if(i == 3) {
+				$('#contact').goTo();
+			}
+        }
+    }
+});
+
 window.addEventListener('keydown', function (e) {
-	if(doc.scrollTop() < height) {
-		if(e.keyCode == 65 || e.keyCode == 68 || e.keyCode == 83 || e.keyCode == 87) {
+	if(e.keyCode == 65 || e.keyCode == 68 || e.keyCode == 83 || e.keyCode == 87) {
+		if(doc.scrollTop() < height) {
 			e.preventDefault();
+			keys[e.keyCode] = true;
+			
+			if(e.keyCode == 65) {
+				keys[68] = false;
+			}
+			if(e.keyCode == 68) {
+				keys[65] = false;
+			}
+			if(e.keyCode == 83) {
+				keys[65] = false;
+				keys[68] = false;
+			}
 		}
-		keys[e.keyCode] = true;
 	}
 });
  

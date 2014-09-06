@@ -9,8 +9,16 @@ body {
 	margin: 0;
 }
 
+canvas {
+	background: #7d7dff url(../images/headerBG.png) repeat-x left 25%;
+	display: block;
+	font-family: 'Press Start 2P';
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
 footer {
-	background: transparent url(../images/greenBrickBG.png) repeat-x left bottom;
 	height: 75px;
 }
 	footer p {
@@ -20,55 +28,27 @@ footer {
 		text-align: center;
 	}
 
-canvas {
-	background: #7d7dff url(../images/headerBG.png) repeat-x left 25%;
-	display: block;
-	font-family: 'Press Start 2P';
-	margin: 0;
-	padding: 0;
-	position: relative;
-}
-	header a {
-		border: none;
-		color: #000;
-		text-decoration: none;
-	}
-
-iframe {
-	display: block;
-	height: 600px;
-	margin: 0 auto;
-	width: 1000px;
-}
-
-section {
-}
-	section#portfolio img {
-		display: inline-block;
-		width: 490px;
-	}
-
 /*		IDs			*/
 
-#backToTop {
-	
-}
 
-#ground {
-	background: #4a4a4a url(../images/brickBG.png) repeat left top;
-	height: 125px;
-	width: 100%;
-}
-
-#resume {
-	background-color: #fff;
-	padding: 0 25px;
-}
-	#resume p {
-		
-	}
 
 /*		Classes		*/
+
+.bgFade {
+	background: transparent url(../images/bgFade.png) repeat-x left top;
+	background-size: auto 100%;
+	position: relative;
+	width: 100%;
+	z-index: 1000;
+}
+
+.bricks {
+	background-image: url(../images/brickBG.png);
+}
+
+.concrete {
+	background-image: url(../images/portalWall.png);
+}
 
 .content {
 	background-color: #999;
@@ -78,7 +58,6 @@ section {
 	padding: 25px;
 	position: relative;
 	width: 1000px;
-	z-index: 500;
 }
 	.content h2 {
 		font-family: 'Press Start 2P';
@@ -93,6 +72,10 @@ section {
 		font-size: 1em;
 	}
 
+.dirt {
+	background-image: url(../images/dirt.png);
+}
+
 .indent {
 	padding-left: 15px;
 }
@@ -104,8 +87,11 @@ section {
 	width: 800px;
 }
 
+.offset { }
+
 .transition {
-	background: transparent url(../images/transition.png) repeat-x left top;
-	background-size: auto 100%;
+	background-repeat: repeat;
+	background-position: left top;
+	height: 125px;
 	width: 100%;
 }

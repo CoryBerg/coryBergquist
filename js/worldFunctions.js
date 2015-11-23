@@ -19,9 +19,10 @@ var canvas = document.getElementById('canvas'),
 		y: height-125,
 		width: 75,
 		height: 100,
-		speed: 6,
+		speed: 7,
 		velX: 0,
 		velY: 0,
+		direction: 1, // 0 = left, 1 = right
 		jumping: false,
 		grounded: false,
 		image: new Image()
@@ -31,7 +32,7 @@ var canvas = document.getElementById('canvas'),
 	sprite = {
 		x: 538,
 		y: 0,
-		w: 74,
+		w: 82,
 		h: 100
 	},
 	runTimer = 0;
@@ -89,12 +90,15 @@ function update() {
 		ctx.drawImage(menuImg, 75, 100, (height/1.5), (height/3));
 	}
 	
-	drawPlayer();
-	
-	player.grounded = false;
+	//player.grounded = false;
 	
 	checkBoxes();
+	
+	setSprite();
+	drawPlayer();
+	
 
+	
 	if(player.grounded){
 		player.velY = 0;
 	}
@@ -116,12 +120,16 @@ function update() {
 function checkKeys() {
 	// A
 	if (keys[65]) {
+		player.direction = 0;
+
 		if (player.velX > -player.speed) {
 			player.velX -= 1;
 		}
 	}
 	// D
 	if (keys[68]) {
+		player.direction = 1;
+		
 		if (player.velX < player.speed) {
 			player.velX += 1;
 		}
@@ -147,7 +155,7 @@ function drawText() {
 	
 	ctx.font = 'bold 2.0em sans-serif';
 	
-	ctx.fillText('About', boxes[1].x - 15, boxes[1].y - 100);
+	ctx.fillText('About', boxes[1].x, boxes[1].y - 100);
 	ctx.fillText('Portfolio', boxes[2].x - 20, boxes[2].y - 100);
 	ctx.fillText('Contact', boxes[3].x - 15, boxes[3].y - 100);
 }
@@ -158,8 +166,12 @@ function drawPlayer() {
 
 function checkBoxes() {
 	for (var i = 0; i < boxes.length; i++) {
-		if(i == 0) boxes[i].y = height;
-		else boxes[i].y = height-116;
+		if(i == 0) {
+			boxes[i].y = height;
+		} else {
+			boxes[i].y = height-116;
+		}
+		
 		ctx.drawImage(pipeImg, boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
 
 		var dir = colCheck(player, boxes[i]);
@@ -223,6 +235,53 @@ function colCheck(shapeA, shapeB) {
 
 function setSprites() {
 	sprites.push();
+}
+
+
+var counter = 0;
+
+function setSprite() {
+	if(!player.jumping) {
+		if((Math.round(player.velX) > 0) || ((Math.round(player.velX) > 0) && (keys[68]))) { // Running right or slowing down facing right
+			runRight();
+		} else if((Math.round(player.velX) > 0) && (keys[65])) { // Pressing left while moving right
+			stopRight();
+		} else if((Math.round(player.velX) < 0) || ((Math.round(player.velX) > 0) && (keys[65]))) { // Running left or slowing down facing left
+			runLeft();
+		} else if((Math.round(player.velX) < 0) && (keys[68])) { // Pressing right while moving left
+			stopLeft();
+		} else { // No movement, check direction and set idle pose
+			if(player.direction == 1) {
+				sprite.x = 538;
+			}else {
+				sprite.x = 456;
+			}
+			
+			counter = 0;
+		}
+	} else {
+		if(player.direction == 1) {
+			sprite.x = 968;
+		}else {
+			sprite.x = 0;
+		}
+	}
+}
+
+function runRight() {
+	sprite.x = 620;
+}
+
+function stopRight() {
+	sprite.x = 128;
+}
+
+function runLeft() {
+	sprite.x = 374;
+}
+
+function stopLeft() {
+	sprite.x = 866;
 }
 
 function goDownPipe(pipe) {

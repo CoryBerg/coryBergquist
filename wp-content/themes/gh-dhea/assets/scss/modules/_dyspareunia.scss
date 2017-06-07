@@ -1,0 +1,68 @@
+.page--dyspareunia {
+  .dyspareunia {
+    &__symptoms {
+      @media #{$large-screen} {
+        @include outer-container;
+      }
+
+      &__table {
+        @media #{$large-screen} {
+          @include span-columns(8);
+        }
+      }
+      &__image {
+        @media #{$large-screen} {
+          @include span-columns(4);
+          @include omega;
+          margin-top: 25rem;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+    &__atrophy {
+      @media #{$large-screen} {
+        @include outer-container;
+      }
+
+      &__image {
+        @media #{$large-screen} {
+          @include span-columns(6);
+        }
+      }
+      &__info {
+        @media #{$large-screen} {
+          @include span-columns(6);
+          @include omega;
+        }
+      }
+    }
+    &__estrogen {
+      @media #{$large-screen} {
+        @include outer-container;
+      }
+
+      &__quote {
+        @media #{$large-screen} {
+          @include span-columns(8);
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+      &__info {
+        @media #{$large-screen} {
+          @include span-columns(4);
+          @include omega;
+
+          h3 {
+            margin-top: 4rem;
+          }
+        }
+      }
+    }
+  }
+}

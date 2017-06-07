@@ -1,0 +1,31 @@
+.page--unsubscribe {
+  .unsubscribe {
+    &__content {
+      max-width: 74rem;
+
+      .message-sent--unsubscribe & {
+        @media #{$large-screen} {
+          margin: 0 0 16rem;
+        }
+      }
+
+      &__form {
+        .message-sent--unsubscribe & {
+          display: none;
+        }
+      }
+    }
+  }
+  .default {
+    .message-sent--unsubscribe & {
+      display: none;
+    }
+  }
+  .success {
+    display: none;
+
+    .message-sent--unsubscribe & {
+      display: block;
+    }
+  }
+}

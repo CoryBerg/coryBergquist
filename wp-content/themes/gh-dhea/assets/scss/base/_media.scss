@@ -1,0 +1,30 @@
+figure {
+  margin: 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+.video-container {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding: 0 0 56.25%;
+  position: relative;
+
+  &-item,
+  iframe,
+  video,
+  object,
+  embed {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+}

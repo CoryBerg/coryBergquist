@@ -1,0 +1,39 @@
+/*
+ * style.scss
+ *
+ * main scss / sass entry point for simmons / sleep sells wordpress theme
+ */
+
+// import browser reset
+@import "./../../node_modules/normalize.css/normalize";
+
+// import google fonts
+//@import url('https://fonts.googleapis.com/css?family=Lato|Oswald|PT+Mono');
+
+// import font-awesome
+@import "./../../node_modules/font-awesome/scss/font-awesome";
+
+//import bourbon / neat / bitters
+@import "bourbon";
+@import "neat";
+@import "base/base";
+
+// import custom styles
+@import "modules/base";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/contact";
+@import "modules/home";
+@import "modules/modal";
+@import "modules/accordion";
+@import "modules/thanks";
+@import "modules/sex-health";
+@import "modules/dhea";
+@import "modules/dyspareunia";
+@import "modules/histology";
+@import "modules/sitemap";
+@import "modules/unsubscribe";
+@import "modules/four-o-four";
+
+// import custom styles for plugins
+

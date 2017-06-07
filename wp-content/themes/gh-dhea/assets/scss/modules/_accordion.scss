@@ -1,0 +1,38 @@
+.accordion {
+  margin: 1rem 0;
+
+  &-container {
+    margin: 4rem 0 0;
+  }
+  &__title {
+    background: $paler-green url('../../assets/images/accordion-down.png') 2rem center no-repeat;
+    color: $green;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: $semibold-font-weight;
+    margin: 0 -2rem;
+    padding: .5rem 2rem .5rem 5rem;
+
+    .accordion--open & {
+      background-image: url('../../assets/images/accordion-up.png');
+    }
+
+    @media #{$large-screen} {
+      margin: 0;
+    }
+  }
+  &__content {
+    display: none;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    padding: 1.6rem 0;
+
+    @media #{$large-screen} {
+      margin: 0 2rem;
+    }
+
+    .accordion--open & {
+      display: block;
+    }
+  }
+}

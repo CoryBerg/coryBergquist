@@ -1,0 +1,116 @@
+.page--histology {
+  .histology {
+    &__wall {
+      &-wrapper {
+        @media #{$large-screen} {
+          @include outer-container;
+          min-height: 65rem;
+        }
+      }
+      &__info {
+        @media #{$large-screen} {
+          @include span-columns(6);
+          @include shift(6);
+
+          h3 {
+            margin-top: 1rem;
+
+            > p {
+              margin: 0;
+            }
+          }
+        }
+
+        &__before,
+        &__after {
+          &__image {
+            cursor: pointer;
+          }
+        }
+
+        &__after {
+          display: none;
+        }
+      }
+      &__image {
+        @media #{$large-screen} {
+          @include span-columns(6);
+          @include shift(-12);
+          margin-top: 1rem;
+        }
+
+        img {
+          cursor: pointer;
+        }
+
+        &__after {
+          display: none;
+        }
+      }
+    }
+    &__impact {
+      &-wrapper {
+        @media #{$large-screen} {
+          @include outer-container;
+        }
+      }
+      &__quote {
+        @media #{$large-screen} {
+          @include span-columns(4);
+
+          blockquote {
+            margin-top: 0;
+            padding-bottom: 4rem;
+            padding-top: 4rem;
+          }
+        }
+      }
+      &__graphs {
+        &__title {
+          margin-top: 0;
+        }
+        &__graph {
+          margin: 0 4rem;
+          text-align: center;
+
+          h3 {
+            margin-top: 1rem;
+          }
+        }
+
+        @media #{$large-screen} {
+          @include span-columns(5);
+
+          &__graph {
+            display: inline-block;
+            margin: 0;
+            max-width: 19rem;
+            vertical-align: top;
+
+            &--green {
+              margin-right: 4rem;
+            }
+          }
+        }
+      }
+      &__info {
+        @media #{$large-screen} {
+          @include span-columns(3);
+          @include omega;
+
+          margin-top: 6rem;
+        }
+      }
+    }
+  }
+  &.show-after {
+    .histology__wall__info__before,
+    .histology__wall__image__before {
+      display: none;
+    }
+    .histology__wall__info__after,
+    .histology__wall__image__after {
+      display: block;
+    }
+  }
+}

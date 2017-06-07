@@ -1,0 +1,33 @@
+.page--contact {
+  font-weight: $light-font-weight;
+
+  .contact-container {
+    @include outer-container;
+
+    @media #{$large-screen} {
+      margin: 0 0 16rem;
+    }
+
+    &__info {
+      @media #{$large-screen} {
+        @include span-columns(8);
+      }
+    }
+    &__location {
+      img {
+        margin: 0 0 1rem;
+      }
+
+      @media #{$large-screen} {
+        @include span-columns(3);
+        @include shift(1);
+        @include omega();
+        margin-top: -5rem;
+
+        p {
+          margin: 0 0 1.6rem 9rem;
+        }
+      }
+    }
+  }
+}

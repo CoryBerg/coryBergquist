@@ -1,0 +1,129 @@
+.form {
+  &__field {
+    margin: .8rem 0;
+
+    &-wrapper {
+      @include clearfix;
+    }
+
+    &--half {
+      @media #{$large-screen} {
+        margin-bottom: 0;
+        width: 49%;
+
+        &-left {
+          float: left;
+        }
+        &-right {
+          float: right;
+        }
+      }
+    }
+
+    &--checkbox {
+      font-weight: $light-font-weight;
+
+      .wpcf7-list-item {
+        display: block;
+        margin: 2rem 0;
+
+        .modal & {
+          margin: 0;
+        }
+      }
+      .wpcf7-not-valid-tip {
+        margin-left: 2rem;
+      }
+      .wpcf7-list-item-label,
+      .text {
+        display: block;
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        margin: 0 0 0 2rem;
+      }
+    }
+    &--button {
+      &-inline {
+        button,
+        input[type="submit"],
+        input[type="button"],
+        .button {
+          display: inline-block;
+          margin: 1.2rem 2rem 1.2rem 0;
+          min-width: 12rem;
+          vertical-align: middle;
+
+          @media #{$large-screen} {
+            margin: 0 2.5rem 0 0;
+            min-width: 15rem;
+          }
+        }
+      }
+    }
+  }
+}
+input[type="text"],
+input[type="password"],
+input[type="url"],
+input[type="email"] {
+  border: .1rem solid $green;
+  border-radius: .5rem;
+  font-family: $base-font-family;
+  font-size: 1.4rem;
+  max-width: 45rem;
+  padding: 1.2rem 1rem;
+  width: 100%;
+
+  &:focus {
+    border-color: $light-blue;
+  }
+
+  .modal--sign-up & {
+    max-width: none;
+  }
+
+  &.wpcf7-not-valid {
+    border-color: $red;
+  }
+}
+input[type="checkbox"],
+input[type="radio"] {
+  float: left;
+}
+button,
+input[type="submit"],
+input[type="button"] {
+  background: $light-blue;
+  border-radius: .5rem;
+  color: $white;
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  min-width: 15rem;
+  padding: 1rem;
+  text-align: center;
+  transition: none;
+  vertical-align: middle;
+
+  &:hover {
+    background: $paler-blue;
+  }
+
+  .modal & {
+    min-width: 12.5rem;
+  }
+}
+.wpcf7-not-valid {
+  .wpcf7-list-item {
+    margin-bottom: 0;
+  }
+}
+span.wpcf7-not-valid-tip {
+  color: $red;
+  font-size: 1.2rem;
+  margin: .5rem 0 0;
+}
+.ajax-loader,
+.wpcf7-response-output {
+  display: none !important;
+}

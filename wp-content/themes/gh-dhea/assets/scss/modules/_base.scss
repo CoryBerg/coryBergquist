@@ -1,0 +1,369 @@
+/*
+ * base.scss
+ *
+ * Base styles for Uncover DHEA wordpress theme
+ */
+
+html{
+  font-size: 62.5%;
+}
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-style: normal;
+  font-weight: $base-font-weight;
+
+  &.nav-open,
+  &.show-modal {
+    &:before {
+      background: $black-75;
+      bottom: 0;
+      content: "";
+      display: block;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: $modal-overlay-index;
+    }
+  }
+}
+a {
+  transition: none;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+
+  > p {
+    margin: 0;
+  }
+}
+img {
+  border: 0;
+  max-width: 100%;
+}
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+}
+.arrow-button {
+  color: $green;
+  position: relative;
+
+  &:before {
+    background-color: $white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 5rem;
+    padding: 1rem;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 5rem;
+  }
+
+  &--right {
+    padding-right: 6rem;
+
+    &:before {
+      background-image: url('../../assets/images/right-arrow-white-large.png');
+      right: 0;
+    }
+  }
+}
+.button {
+  background: $white url('../../assets/images/link-arrow.png') right 1rem center no-repeat;
+  color: $green;
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: .5rem 4rem .5rem 1rem;
+
+  &:hover {
+    background: $green url('../../assets/images/link-arrow-hover.png') right 1rem center no-repeat;
+    color: $white;
+  }
+
+  &--video {
+    background-image: url('../../assets/images/link-arrow-video.png');
+
+    &:hover {
+      background-image: url('../../assets/images/link-arrow-video-hover.png');
+    }
+  }
+
+  &--blue,
+  &--gray {
+    border-radius: .5rem;
+    color: $white;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: $light-font-weight;
+    line-height: 2rem;
+    min-width: 15rem;
+    padding: 1rem;
+    text-align: center;
+
+    &:hover {
+      background: inherit;
+
+      &:before {
+        background: none;
+      }
+    }
+  }
+  &--blue {
+    background: $light-blue;
+
+    &:hover {
+      background: $paler-blue;
+    }
+  }
+  &--gray {
+    background: $off-gray;
+
+    &:hover {
+      background: $light-mid-gray;
+    }
+  }
+}
+.align-left {
+  text-align: left;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+
+.error404,
+.page {
+  background: $pale-green;
+
+  &.home {
+    background: $white;
+
+    .page__title {
+      display: none;
+    }
+  }
+
+  &__content {
+    line-height: 2rem;
+    padding: 2rem;
+
+    a {
+      color: $pale-blue;
+
+      &:hover {
+        color: $paler-blue;
+      }
+
+      &.button {
+        color: $green;
+
+        &:hover {
+          color: $white;
+        }
+
+        &--blue,
+        &--gray {
+          color: $white;
+        }
+      }
+
+      > p {
+        margin: 0;
+      }
+    }
+    p {
+      margin: 0 0 1.6rem;
+    }
+    em,
+    i {
+      font-style: italic;
+    }
+    ul,
+    ol {
+      font-weight: $light-font-weight;
+      margin: 0 0 0 1.5rem;
+
+      ul,
+      ol {
+        list-style-type: none;
+        margin: 0;
+
+        li {
+          margin: 1.6rem 0 0 0;
+          padding: 0;
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+
+      li {
+        margin: 0 0 1.6rem;
+      }
+    }
+    ul {
+      list-style-type: none;
+
+      li {
+        position: relative;
+        padding: 0 0 0 1rem;
+
+        &:before {
+          background: $dark-gray;
+          content: "";
+          display: block;
+          font-weight: $light-font-weight;
+          height: .3rem;
+          position: absolute;
+          left: 0;
+          top: .8rem;
+          width: .3rem;
+        }
+      }
+    }
+    ol {
+      list-style-type: decimal;
+    }
+
+    h3 {
+      color: $blue;
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: $base-font-weight;
+      line-height: 2.4rem;
+      margin: 3rem 0;
+
+      &.green {
+        color: $green;
+      }
+    }
+    h4 {
+      color: $green;
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: $base-font-family;
+      line-height: 2rem;
+      margin: 2rem 0;
+      text-transform: uppercase;
+
+      b,
+      strong,
+      span  {
+        color: $blue;
+        font-style: normal;
+        font-weight: $base-font-weight;
+      }
+    }
+    sup,
+    sub {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
+    sup {
+      top: -.5rem;
+    }
+    sub {
+      bottom: -.25rem;
+    }
+    blockquote {
+      border-bottom: .8rem solid $white;
+      border-top: .8rem solid $white;
+      color: $blue;
+      font-size: 2.8rem;
+      font-style: italic;
+      line-height: 3.2rem;
+      margin: 4.5rem 0;
+      padding: 2rem;
+
+      sup,
+      sub {
+        font-size: 50%;
+      }
+      sup {
+        top: -1.2rem;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      &.green {
+        color: $green;
+      }
+    }
+    .footnote {
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+    }
+    .light {
+      font-weight: $light-font-weight;
+    }
+    .regular {
+      font-weight: $base-font-weight;
+    }
+    .semi-bold {
+      font-weight: $semibold-font-weight;
+    }
+    .bold {
+      font-weight: $bold-font-weight;
+    }
+  }
+
+  &__title {
+    color: $green;
+    font-size: 3.6rem;
+    font-weight: $base-font-weight;
+    hyphens: auto;
+    line-height: 3.9rem;
+    margin: 2rem 0;
+
+    sup,
+    sub {
+      font-size: 50%;
+    }
+    sup {
+      top: -1.2rem;
+    }
+
+    @media #{$large-screen} {
+      hyphens: none;
+    }
+
+    b {
+      font-style: normal;
+      font-weight: $bold-font-weight;
+    }
+  }
+}
+.container {
+  margin: 0 auto;
+  max-width: $site-width;
+}
+.show-mobile {
+  @media #{$large-screen} {
+    display: none;
+  }
+}
+.show-desktop {
+  display: none;
+
+  @media #{$large-screen} {
+    display: block;
+  }
+}
+

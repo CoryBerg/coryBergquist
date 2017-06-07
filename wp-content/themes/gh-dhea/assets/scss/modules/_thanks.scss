@@ -1,0 +1,35 @@
+.page--thanks {
+  .thanks-container {
+    @include outer-container;
+
+    &__info {
+      @media #{$large-screen} {
+        @include span-columns(4);
+        @include shift(4);
+      }
+    }
+    &__image {
+      float: left;
+      margin: 3rem 2.5rem 3rem 0;
+
+      @media #{$large-screen} {
+        @include span-columns(4);
+        @include shift(-8);
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      img {
+        width: 10rem;
+
+        @media #{$large-screen} {
+          width: auto;
+        }
+      }
+    }
+    &__download {
+      float: left;
+      margin: 7rem 0 0;
+    }
+  }
+}

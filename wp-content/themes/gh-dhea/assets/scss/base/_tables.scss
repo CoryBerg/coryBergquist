@@ -1,0 +1,35 @@
+table {
+  background: $white;
+  border-bottom: 0.5rem solid $green;
+  border-collapse: collapse;
+  color: $green;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin: 2rem 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+th {
+  background: $green;
+  color: $white;
+  font-size: 1.6rem;
+  font-weight: $base-font-weight;
+  padding: 0.5rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 0.8rem 0.5rem;
+}
+
+tr:nth-child(odd) {
+  background: $pale-green;
+}
+
+tr,
+td,
+th {
+  vertical-align: middle;
+}

@@ -1,0 +1,85 @@
+// Breakpoints
+$medium-screen: screen and (min-width: 600px);
+$large-screen: screen and (min-width: 1040px);
+$home-bar-container-width: 1015px;
+$site-width: 1100px;
+
+// Typography
+$base-font-family: 'Fira Sans', 'sans-serif';
+$heading-font-family: $base-font-family;
+
+// Font Sizes
+$base-font-size: 1.6rem;
+
+// Font Weights
+$base-font-weight: 400;
+$light-font-weight: 300;
+$semibold-font-weight: 600;
+$bold-font-weight: 700;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$black: #000;
+$black-75: rgba($black, .75 );
+$black-25: rgba($black, .25);
+$white: #fff;
+$off-white: #f7f7fc;
+$pale-blue: #00aeef;
+$paler-blue: #80b9de;
+$light-blue: #0072bc;
+$blue: #1565c0;
+$paler-green: #edf0d2;
+$pale-green: #f6f7e9;
+$lighter-green: #c0ca66;
+$lighter-green-75: rgba($lighter-green, .75);
+$light-green: #d1d88f;
+$off-green: #bdc766;
+$off-green-75: rgba($off-green, .75);
+$green: #a3a60f;
+$green-hover: #bec157;
+$dark-gray: #333;
+$mid-gray: #666;
+$medium-gray: #999;
+$light-mid-gray: #aaa;
+$off-gray: #808084;
+$pale-gray: #ededee;
+$light-gray: #ddd;
+$red: #ff0000;
+
+// Font Colors
+$base-font-color: $dark-gray;
+$action-color: $blue;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
+
+// Z-indicies
+$home-sheets-index: 0;
+$home-content-index: 1;
+$header-index: 10;
+$modal-overlay-index: 30;
+$modal-close-index: 40;
+$modal-index: 40;
+$header-mobile-open-index: 40;

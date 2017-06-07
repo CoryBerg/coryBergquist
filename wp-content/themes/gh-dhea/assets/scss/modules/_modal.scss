@@ -1,0 +1,88 @@
+.modal {
+  background: $white;
+  display: none;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 1rem;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  z-index: $modal-index;
+
+  &--sign-up {
+    max-width: 55rem;
+
+    .form__field--checkbox {
+      @media #{$large-screen} {
+        @include span-columns(9);
+      }
+    }
+
+    .form__field--button {
+      text-align: right;
+
+      @media #{$large-screen} {
+        @include span-columns(3);
+      }
+    }
+  }
+  &--video {
+    max-width: 88rem;
+  }
+
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    right: -1rem;
+    top: -1rem;
+    z-index: $modal-close-index;
+  }
+  &__content {
+    &__title {
+      color: $green;
+      font-size: 2.2rem;
+      font-weight: $base-font-weight;
+      line-height: 2.4rem;
+      margin: 1.6rem 0;
+
+      .default {
+        .message-sent--sign-up & {
+          display: none;
+        }
+      }
+
+      .success {
+        display: none;
+
+        .message-sent--sign-up & {
+          display: block;
+        }
+      }
+
+    }
+    &__form {
+      margin: 1.6rem 0;
+
+      .message-sent--sign-up & {
+        display: none;
+      }
+    }
+    &__footer {
+      text-align: center;
+
+      .message-sent--sign-up & {
+        display: none;
+      }
+
+      @media #{$large-screen} {
+        text-align: left;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}

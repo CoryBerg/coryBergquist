@@ -1,0 +1,193 @@
+.header {
+  background: $white;
+  box-shadow: 0 0 1rem $black-25;
+  padding: 0 2rem;
+  position: relative;
+  z-index: $header-index;
+
+  .nav-open & {
+    z-index: $header-mobile-open-index;
+  }
+
+  &__wrapper {
+    @include clearfix;
+    position: relative;
+  }
+  &__meta {
+    background: $pale-gray;
+    color: $mid-gray;
+    font-size: 1rem;
+    margin: 0 -2rem;
+    padding: .5rem 2rem;
+    text-align: center;
+
+    @media #{$large-screen} {
+      font-size: 1.2rem;
+      text-align: left;
+    }
+  }
+
+  &__logo-container {
+    bottom: -.1rem;
+    padding: 2rem 0 0;
+    position: relative;
+
+    @media #{$large-screen} {
+      float: left;
+      padding: 3rem 0 0;
+      position: absolute;
+    }
+  }
+  &__logo {
+    display: inline-block;
+    width: 16rem;
+
+    @media #{$large-screen} {
+      float: left;
+      width: auto;
+    }
+
+    img {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+  &__mobile-nav {
+    color: $mid-gray;
+    font-size: 4rem;
+    position: absolute;
+    right: 0;
+    top: .5rem;
+
+    @media #{$large-screen} {
+      display: none;
+    }
+
+    .fa-times {
+      display: none;
+    }
+
+    .nav-open & {
+      color: $green;
+
+      .fa-bars {
+        display: none;
+      }
+      .fa-times {
+        display: inline;
+      }
+    }
+  }
+  &__nav {
+    background: $dark-gray;
+    display: none;
+    left: -2rem;
+    position: absolute;
+    right: -2rem;
+    top: 100%;
+
+    @media #{$large-screen} {
+      background: none;
+      float: right;
+    }
+
+    li {
+      @media #{$large-screen} {
+        display: inline-block;
+        margin: 0 0 0 4.8rem;
+        max-width: 17.5rem;
+        padding: 1.8rem 0;
+        position: relative;
+        vertical-align: top;
+
+        &:hover {
+          &:before {
+            background: $green-hover;
+            height: .8rem;
+            content: "";
+            display: block;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 10rem;
+          }
+        }
+
+        &.current_page_item {
+          &:before,
+          &:after {
+            height: .8rem;
+            content: "";
+            display: block;
+            left: 0;
+            position: absolute;
+            width: 10rem;
+          }
+          &:before {
+            background: $green;
+            top: 0;
+          }
+          &:after {
+            background: $light-blue;
+            bottom: 0;
+          }
+        }
+
+        &.show-mobile {
+          display: none;
+        }
+      }
+    }
+
+    a {
+      color: $light-green;
+      display: block;
+      padding: 1rem 2rem;
+
+      @media #{$large-screen} {
+        padding: 0;
+      }
+    }
+    .link--main {
+      a {
+        background: $mid-gray;
+        border-bottom: .1rem solid $dark-gray;
+        color: $white;
+        font-size: 1.8rem;
+
+        @media #{$large-screen} {
+          background: none;
+          border: 0;
+          color: $green;
+          line-height: 2rem;
+        }
+
+        br {
+          @extend .show-desktop;
+        }
+
+        span {
+          color: $light-green;
+          display: block;
+          font-size: 1.5rem;
+          font-weight: $bold-font-weight;
+          line-height: normal;
+          text-transform: uppercase;
+
+          @media #{$large-screen} {
+            color: $medium-gray;
+          }
+        }
+      }
+    }
+
+    .nav-open & {
+      display: block;
+    }
+
+    @media #{$large-screen} {
+      display: block;
+      position: static;
+    }
+  }
+}

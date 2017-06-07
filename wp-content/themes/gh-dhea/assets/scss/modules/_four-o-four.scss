@@ -1,0 +1,10 @@
+.four-o-four {
+  font-weight: $light-font-weight;
+
+  @media #{$large-screen} {
+    margin: 0 0 16rem;
+  }
+  p:last-of-type {
+    margin: 3rem 0;
+  }
+}

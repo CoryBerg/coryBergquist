@@ -1,0 +1,106 @@
+.page--dhea {
+  .dhea {
+    &__pre-post {
+      &-wrapper {
+        @media #{$large-screen} {
+          @include outer-container;
+        }
+      }
+      &__pre,
+      &__post {
+        margin: 0 0 3rem;
+
+        @media #{$large-screen} {
+          @include span-columns(6);
+        }
+      }
+      &__post {
+        @media #{$large-screen} {
+          @include omega;
+        }
+      }
+      &__diagram {
+        background: $white;
+        font-size: 1.4rem;
+        margin: 0 0 2rem;
+        padding: 1.6rem;
+
+        @media #{$large-screen} {
+          min-height: 57rem;
+        }
+
+        h3 {
+          font-size: 2.2rem;
+          margin: 0 0 1rem;
+        }
+        &__image {
+          margin: 0 0 3rem;
+          text-align: center;
+        }
+
+        .footnote {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    &__effect,
+    &__decline {
+      margin: 4rem 0;
+    }
+    &__effect {
+      @media #{$large-screen} {
+        @include outer-container;
+      }
+
+      &__info {
+        @media #{$large-screen} {
+          @include span-columns(8);
+          @include shift(4);
+
+          h3 {
+            margin-top: 0;
+          }
+        }
+      }
+      &__image {
+        text-align: center;
+
+        @media #{$large-screen} {
+          @include span-columns(4);
+          @include shift(-12);
+          text-align: left;
+        }
+      }
+    }
+    &__decline {
+      @media #{$large-screen} {
+        @include outer-container;
+      }
+
+      &__info {
+        @media #{$large-screen} {
+          @include span-columns(6);
+        }
+
+        img {
+          margin: 0 0 1rem;
+        }
+      }
+      &__quote {
+        @media #{$large-screen} {
+          @include span-columns(6);
+          @include omega;
+          margin-top: 10rem;
+        }
+
+        .footnote {
+          margin: 1.6rem 0 0 0;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

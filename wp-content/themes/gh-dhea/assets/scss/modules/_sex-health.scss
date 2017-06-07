@@ -1,0 +1,121 @@
+.page--sex-health {
+  .page__title {
+  }
+  .sex-health {
+    &__top {
+      @include outer-container;
+
+      &__left {
+        @media #{$large-screen} {
+          @include span-columns(8);
+
+          h3 {
+            margin-top: 0;
+          }
+        }
+      }
+      &__right {
+        @media #{$large-screen} {
+          @include span-columns(4);
+          @include omega;
+        }
+      }
+
+      &__image {
+        @media #{$large-screen} {
+          @include span-columns(4);
+        }
+      }
+      &__graph {
+        &__legend {
+          @media #{$large-screen} {
+            margin: 2rem 0;
+            text-align: center;
+          }
+
+          span {
+            display: inline-block;
+          }
+          &__title {
+            margin: 0 2.2rem 1rem 0;
+          }
+          &__female,
+          &__male {
+            color: $white;
+            font-size: 1.4rem;
+            margin: 0 .2rem;
+            padding: .2rem 1.2rem;
+          }
+          &__female {
+            background: $green;
+          }
+          &__male {
+            background: $blue;
+          }
+        }
+
+        img {
+          margin: 2rem 0;
+        }
+      }
+    }
+    &__bottom {
+      &__pain {
+        &-wrapper {
+          @media #{$large-screen} {
+            @include outer-container;
+            margin-bottom: 3rem;
+          }
+        }
+        &__info {
+         @media #{$large-screen} {
+           @include span-columns(4);
+           @include shift(-12);
+         }
+        }
+        &__chart {
+          @media #{$large-screen} {
+            @include span-columns(8);
+            @include shift(4);
+
+            h4 {
+              margin-top: 0;
+            }
+          }
+          img {
+            margin: 1.2rem 0;
+          }
+        }
+      }
+      &__ignored {
+        &-wrapper {
+          @media #{$large-screen} {
+            @include outer-container;
+          }
+        }
+        &__title {
+          @media #{$large-screen} {
+            @include span-columns(3);
+          }
+        }
+        &__chart {
+          text-align: center;
+
+          @media #{$large-screen} {
+            @include span-columns(3);
+            text-align: left;
+          }
+        }
+        &__info {
+          @media #{$large-screen} {
+            @include span-columns(6);
+          }
+
+          a {
+            margin: 0 0 1.6rem 0;
+          }
+        }
+      }
+    }
+  }
+}
